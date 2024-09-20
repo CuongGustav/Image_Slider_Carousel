@@ -1,5 +1,6 @@
 :root{
     --header-height:50px;
+    --pd-16px: 16px;
 }
 *{
     box-sizing: inherit;
@@ -17,6 +18,7 @@ body {
 }
 header{
     width: 1200px;
+    max-width: 80%;
     height: var(--header-height);
     margin: auto;
     display: flex;
@@ -28,7 +30,7 @@ header a {
     text-decoration: none;
     color: #fff;
     font-size: 18px;
-    padding: 8px 16px;
+    padding: 8px var(--pd-16px);
     font-weight: 500px;
     border-radius: 20px;
 }
@@ -56,11 +58,92 @@ header a:hover {
 .slider__item--img{
     width: 100%;
     height: 100%;
+    object-fit: cover; /*giũ nguyên hình ảnh, phần thừa sẽ bị ẩn đi*/
 }
-/* .slider__thumbnail{
-
+/*Slider item*/
+.slider__item--content{
+    position: absolute;
+    width: 1200px;
+    max-width: 80%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    padding-left: var(--pd-16px);
+    box-sizing: border-box;
 }
-.slider__nextPrevArrows{
-
-} */
+.slider__item--title,
+.slider__item--type{
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+}
+.slider__item--title{
+    line-height: 72px;
+} 
+.slider__item--description{
+    padding-top: 40px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #000 1.2px 1.2px 0px;
+    font-weight: 550;
+    line-height: 1.1;
+}
+.slider__item--button{
+    margin-top: 16px;
+}
+.slider__item--button button{
+    padding: 12px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.slider__item--button button:hover{
+    color: #fff;
+    background: linear-gradient(to right, #00f7ff, #0055ff);
+}
+/* Slider Thumbnail*/
+.slider__thumbnail{
+    width: max-content;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    display: flex;
+    gap: 20px; /* tạo khoảng cách giữa các item */
+    z-index: 100;
+}
+.slider__thumbnail--item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+.slider__thumbnail--img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 0px 15px;
+    border-radius: 20px;
+}
+.slider__nextPrevArrows {
+    position: absolute;
+    bottom: 25%; 
+    right: calc( 50% + 12px + 10px);
+    display: flex;
+    gap: 10px;
+}
+.slider__nextPrevArrows button{
+    width:  40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    color:  #000;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
     
+}
+.slider__nextPrevArrows button:hover {
+    background: linear-gradient(to right, #00f7ff, #0055ff);
+}
