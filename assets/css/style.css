@@ -1,6 +1,7 @@
 :root{
     --header-height:50px;
     --pd-16px: 16px;
+    --slider__thumbnail-height: 65%;
 }
 *{
     box-sizing: inherit;
@@ -26,7 +27,7 @@ header{
     position: relative;
     z-index: 100 !important;
 }
-header a {
+.header__links a {
     text-decoration: none;
     color: #fff;
     font-size: 18px;
@@ -34,15 +35,25 @@ header a {
     font-weight: 500px;
     border-radius: 20px;
 }
-header a:hover {
-    background: linear-gradient(to right, #00f7ff, #0055ff);
+.header__links a:hover {
     transition-duration: 0.3s;
+    color: #00A6FF;
+}
+#check--navbar{
+    display: none;
+}
+label .header__icon--navbar{
+    font-size: 32px;
+    color: #fff;
+    padding: 8px var(--pd-16px);
+    cursor: pointer;
+    display: none;
 }
 /*Slider*/
 .slider{
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 800px;
     margin-top: calc( -1 * var(--header-height));
     overflow: hidden;
 }
@@ -106,11 +117,12 @@ header a:hover {
 .slider__thumbnail{
     width: max-content;
     position: absolute;
-    bottom: 15%;
+    top: var(--slider__thumbnail-height);
     left: 50%;
     display: flex;
     gap: 20px; /* tạo khoảng cách giữa các item */
     z-index: 100;
+    overflow: hidden;
 }
 .slider__thumbnail--item{
     width: 150px;
@@ -127,7 +139,7 @@ header a:hover {
 }
 .slider__nextPrevArrows {
     position: absolute;
-    bottom: 25%; 
+    top: calc( var(--slider__thumbnail-height) + 90px);
     right: calc( 50% + 12px + 10px);
     display: flex;
     gap: 10px;
